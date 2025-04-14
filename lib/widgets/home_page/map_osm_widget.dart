@@ -97,7 +97,11 @@ class MapOsmWidget extends StatelessWidget {
         height: 32,
         child: const CircleAvatar(
           backgroundColor: Colors.blue,
-          child: Icon(Icons.location_pin, color: Colors.white, size: 24),
+          child: Icon(
+            Icons.directions_car_rounded,
+            color: Colors.white,
+            size: 24,
+          ),
         ),
       );
     }).toList();
