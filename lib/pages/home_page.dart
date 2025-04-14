@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:map_poc/entities/map_location.dart';
 import 'package:map_poc/services/geolocator_services.dart';
 import 'package:map_poc/widgets/home_page/map_osm_widget.dart';
@@ -48,9 +49,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
-    // Inicia o processo de adicionar localizações
-    _startAddingLocations();
   }
 
   void _startAddingLocations() {
@@ -75,10 +73,10 @@ class _HomePageState extends State<HomePage> {
           _displayedLocations = [..._displayedLocations, nextLocation];
         });
         // Move o mapa para a nova localização adicionada (opcional)
-        // _mapController.move(
-        //   LatLng(nextLocation.latitude, nextLocation.longitude),
-        //   _mapController.camera.zoom, // Mantém o zoom atual
-        // );
+        _mapController.move(
+          LatLng(nextLocation.latitude, nextLocation.longitude),
+          _mapController.camera.zoom, // Mantém o zoom atual
+        );
       }
       _currentSourceIndex++; // Avança para o próximo índice
     } else {
@@ -111,8 +109,12 @@ class _HomePageState extends State<HomePage> {
           }
 
           if (snapshot.hasError) {
-            return const Center(child: Text('Error'));
+            var errorMessage = snapshot.error.toString();
+            return Center(child: Text(errorMessage));
           }
+
+          // Inicia o processo de adicionar localizações
+          _startAddingLocations();
 
           bool hasPermission = snapshot.data!;
 
