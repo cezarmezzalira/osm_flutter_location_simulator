@@ -1,16 +1,5 @@
-# map_poc
+# OpenStreetMap App Simulator
 
-A new Flutter project.
+App criado como PoC (Proof of Concept) para testar o uso do OpenStreetMap em uma aplicação flutter, simulando o deslocamento em tempo real de um veículo, traçando sua rota desde a origem até o destino.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Este é um projeto open source e pode ser usado como base para estudos.
